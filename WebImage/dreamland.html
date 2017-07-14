@@ -1,1 +1,33 @@
-lol
+<!doctype HTML>
+<html>
+	<head>
+		<title>Page 2 - JS</title>
+		<link rel = 'stylesheet' type = 'text/css' href = 'layoutp2.css'>
+		<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+	</head>
+	<body id = 'bID'>
+		<script type="text/javascript">
+			setInterval(function(){
+				document.body.style.backgroundColor = 'rgb(' + Math.floor(Math.random()*255) + ',' + Math.floor(Math.random()*255) + ',' + Math.floor(Math.random()*255) + ')';
+			},10000);
+
+			document.onmousemove = function(event){
+				var mousex = event.clientX;
+				var mousey = event.clientY;
+				var arrow = document.getElementById('arrowId');
+				var y = mousey - $(arrow).offset().top;
+				var x = mousex - $(arrow).offset().left;
+
+				var angle = Math.atan2(y,x)*180/Math.PI;
+
+				$(arrow).css('transform','rotate(' + angle + 'deg)');
+				console.log(angle);
+
+			
+			};
+			setInterval(onmousemove, 10000);
+		</script>
+		<img id = 'arrowId' class = 'imgpos' src ="image/arrow.png"></img>
+
+	</body>
+</html>

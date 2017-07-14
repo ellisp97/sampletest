@@ -1,0 +1,12 @@
+body {
+	background-color: #000;
+}
+
+
+.imgpos {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	display: block;
+	top:300px;
+}
