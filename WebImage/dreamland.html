@@ -12,21 +12,43 @@
 			},10000);
 
 			document.onmousemove = function(event){
-				var mousex = event.clientX;
-				var mousey = event.clientY;
+				var mousex = event.clientX + 100;
+				var mousey = event.clientY - 150 ;
 				var arrow = document.getElementById('arrowId');
 				var y = mousey - $(arrow).offset().top;
 				var x = mousex - $(arrow).offset().left;
 
-				var angle = Math.atan2(y,x)*180/Math.PI;
+				var angle = Math.floor(Math.atan2(y,x)*180/Math.PI);
+				var prevangle = Math.atan2(mousex,mousey)*180/Math.PI;
 
 				$(arrow).css('transform','rotate(' + angle + 'deg)');
-				console.log(angle);
+				//console.log('new' + angle);
+				//console.log('old' + prevangle);
 
-			
+				/*function angle2Vec(mousex,mousey,angle,distance){
+				angle = angle*(Math.PI/180);
+				return mousex + Math.cos(angle)*distance, mousey + Math.sin(angle)*distance;
+			}
+			distance = Math.sqrt(x*x + y*y);
+			console.log('newdistance' + angle2Vec(mousex,mousey,angle,distance)), 10000;*/
 			};
+
 			setInterval(onmousemove, 10000);
+
+			document.onclick= userClicked;
+			function userClicked() {
+		    var x = event.clientX;
+		    var y = event.clientY;
+		    var blob = document.getElementById("blobimg");
+		    blob.style.display = '';
+		    blob.style.position = 'absolute';
+		    blob.style.left = x + 'px';
+		    blob.style.top = y + 'px';
+			}
 		</script>
+		<div class "picture">
+        <img alt="blobimg" id="blobimg" style="display: none" src="image/blob.png">
+    </div>
 		<img id = 'arrowId' class = 'imgpos' src ="image/arrow.png"></img>
 
 	</body>

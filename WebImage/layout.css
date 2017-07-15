@@ -15,6 +15,16 @@ body {
 	text-decoration: none;
 }
 
+.beemovie {
+	background: #666;
+	padding: 10px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 22pt;
+	top: 160px;
+	position: relative;
+	display: block;
+}
+
 a{
 	text-decoration: none;
 	color: #000;
