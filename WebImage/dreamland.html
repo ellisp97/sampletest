@@ -31,20 +31,32 @@
 			}
 			distance = Math.sqrt(x*x + y*y);
 			console.log('newdistance' + angle2Vec(mousex,mousey,angle,distance)), 10000;*/
+			return angle
 			};
 
 			setInterval(onmousemove, 10000);
 
 			document.onclick= userClicked;
 			function userClicked() {
-		    var x = event.clientX;
-		    var y = event.clientY;
+		    var x = event.clientX -50;
+		    var y = event.clientY -50;
 		    var blob = document.getElementById("blobimg");
+		    var arrow = document.getElementById("arrowId");
+		    var blobpos = $(blob).position();
+		    var arrowpos = $(arrow).position();
 		    blob.style.display = '';
 		    blob.style.position = 'absolute';
-		    blob.style.left = x + 'px';
-		    blob.style.top = y + 'px';
+		    blob.style.left = $(arrow).offset().left + 'px' ;
+		    blob.style.top = $(arrow).offset().top + 'px' ;
+		    //$(blob).animate({"left":"+=100px"},{"top":"+=100px"}, "fast");
+
+		    $(blob).animate({
+		    	left: x + 'px',
+		    	top: y + 'px',
+		    },500);
 			}
+
+
 		</script>
 		<div class "picture">
         <img alt="blobimg" id="blobimg" style="display: none" src="image/blob.png">
